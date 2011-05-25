@@ -2,6 +2,14 @@
 
 Wrapper for the Linux shell command `sed`.
 
+## How is implemented
+
+I have modularized the project in 3 classes:
+
+* Sed class: which is only defining the external DSL.
+* Commander class: which is in charge of calling `sed` command.
+* Util class: miscellaneous, for the moment I'm trying to detect the `sed` version.
+
 ## How to use it
 
     Sed::Runner.new(<file_path>, [opts]) do |s|
