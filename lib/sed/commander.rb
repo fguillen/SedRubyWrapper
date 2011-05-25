@@ -16,7 +16,7 @@ module Sed
         result << "-i"     if Sed::Util.gnu?
       end
 
-      if opts[:ere]
+      if opts[:extended_regex]
         result << "-E"  if Sed::Util.osx?
         result << "-r"  if Sed::Util.gnu?
       end

@@ -58,7 +58,7 @@ class CommanderTest < Test::Unit::TestCase
       "-",
       {
         :output => output_file_path, 
-        :ere    => true
+        :extended_regex => true
       }
     )
     
@@ -103,7 +103,7 @@ class CommanderTest < Test::Unit::TestCase
         'input.txt',
         'expression',
         'replacement',
-        { :ere => true }
+        { :extended_regex => true }
       )
       
     assert_equal(
@@ -120,7 +120,7 @@ class CommanderTest < Test::Unit::TestCase
         'replacement',
         {
           :output => 'output.txt',
-          :ere => true
+          :extended_regex => true
         }
       )
       

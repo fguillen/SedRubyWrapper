@@ -23,14 +23,14 @@ I have modularized the project in 3 classes:
 The following options are currently supported
 
 * output: <output_file_path>, default is `nil`, if `nil` the replacement will be _in place_
-* ere: {true|false}, default is `false`. Activate _extended regular expresssions_
+* extended_regex: {true|false}, default is `false`. Activate _extended regular expresssions_
 
 ## Examples
 
     Sed::Runner.new(
       '/tmp/input.txt', 
       :output => '/tmp/output.txt', 
-      :ere    => true
+      :extended_regex => true
     ) do |s|
       s.replace("[aeiou]", "x")
       s.replace("\s", "-")

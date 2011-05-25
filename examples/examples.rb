@@ -18,7 +18,7 @@ puts
 puts "EXAMPLE 2--------------------------------"
 FileUtils.copy(EXAMPLE_FILE_PATH, TMP_FILE_PATH)
 
-Sed::Runner.new(TMP_FILE_PATH, :ere => true) do |s|
+Sed::Runner.new(TMP_FILE_PATH, :extended_regex => true) do |s|
   s.replace('[aeiou]', 'X')
 end
 
