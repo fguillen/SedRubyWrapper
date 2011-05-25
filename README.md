@@ -4,7 +4,7 @@ Wrapper for the Linux shell command `sed`.
 
 ## How to use it
 
-    Sed.new(<file_path>, [opts]) do |s|
+    Sed::Runner.new(<file_path>, [opts]) do |s|
       s.replace(<expresion>, <replacement>)
       s.replace(<expresion>, <replacement>)
       s.replace(<expresion>, <replacement>)
@@ -14,12 +14,16 @@ Wrapper for the Linux shell command `sed`.
 
 The following options are currently supported
 
-* out: <output_file_path>, default is `nil`, if `nil` the replacement will be _in place_
+* output: <output_file_path>, default is `nil`, if `nil` the replacement will be _in place_
 * ere: {true|false}, default is `false`. Activate _extended regular expresssions_
 
 ## Examples
 
-    Sed.new('/tmp/input.txt', :out => '/tmp/output.txt', :ere => true) do |s|
+    Sed::Runner.new(
+      '/tmp/input.txt', 
+      :output => '/tmp/output.txt', 
+      :ere    => true
+    ) do |s|
       s.replace("[aeiou]", "x")
       s.replace("\s", "-")
     end
