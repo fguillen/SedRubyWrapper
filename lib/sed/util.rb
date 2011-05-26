@@ -6,9 +6,12 @@ module Sed
     # returns :gnu for Linux version
     # returns :osx for Mac version
     def system
-      command_exit = Kernel.system "sed --version 2> /dev/null"
+      return @system  if @system
       
-      command_exit ? :gnu : :osx
+      command_exit = Kernel.system "sed --version 2> /dev/null"
+      @sytem = command_exit ? :gnu : :osx
+      
+      return @sytem
     end
     
     def osx?
