@@ -12,13 +12,11 @@ module Sed
       result = []
       
       if opts[:output].nil?
-        result << "-i ''"  if Sed::Util.osx?
-        result << "-i"     if Sed::Util.gnu?
+        result << Sed::Commander.inplace_option
       end
 
       if opts[:extended_regex]
-        result << "-E"  if Sed::Util.osx?
-        result << "-r"  if Sed::Util.gnu?
+        result << Sed::Commander.extended_regex_option
       end
       
       result << "'s/#{expression}/#{replacement}/g'"
@@ -29,6 +27,16 @@ module Sed
       end
       
       result.join(' ')
+    end
+    
+    def inplace_option
+      return "-i ''"  if Sed::Util.osx?
+      return "-i"     if Sed::Util.gnu?
+    end
+    
+    def extended_regex_option
+      return "-E"  if Sed::Util.osx?
+      return "-r"  if Sed::Util.gnu?
     end
     
   end
