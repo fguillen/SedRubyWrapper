@@ -9,9 +9,9 @@ module Sed
       return @system  if @system
       
       command_exit = Kernel.system "sed --version 2> /dev/null"
-      @sytem = command_exit ? :gnu : :osx
+      @system = command_exit ? :gnu : :osx
       
-      return @sytem
+      return @system
     end
     
     def osx?
